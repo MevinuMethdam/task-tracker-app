@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Tracker</title>
+    <title>PharmaCare - Task & Prescription Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>My Tasks</h1>
-    <div class="input-section">
-        <input type="text" id="taskInput" placeholder="Add a new task...">
-        <button id="addBtn">Add Task</button>
-    </div>
-    <ul id="taskList"></ul>
+
+<div class="app-card">
+    <!-- Modern Pharmacy Header Section -->
+    <header class="app-header">
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+            <h1>PharmaCare Portal</h1>
+        </div>
+        <p>Prescription & Inventory Task Manager</p>
+    </header>
+
+    <!-- Main Task Management Section -->
+    <main class="app-body">
+
+        <label for="taskInput" class="input-group-label">New Task / Order Item</label>
+        <div class="input-section">
+            <div class="input-wrapper">
+                <input type="text" id="taskInput" placeholder="e.g., Dispense Paracetamol 500mg...">
+            </div>
+            <button id="addBtn">
+                <span>+</span> Add Task
+            </button>
+        </div>
+
+        <div class="list-header">
+            <span class="list-title">Active Pharmacy Tasks</span>
+        </div>
+
+        <!-- Task List Section -->
+        <ul id="taskList">
+            <!-- JavaScript items will render here dynamically -->
+        </ul>
+
+    </main>
+
+    <!-- Footer Info Bar -->
+    <footer class="app-footer">
+        <div class="status-indicator">
+            <span class="dot"></span>
+            <span>System Online</span>
+        </div>
+        <span>Pharma Suite v2.4</span>
+    </footer>
 </div>
 
 <script src="script.js"></script>

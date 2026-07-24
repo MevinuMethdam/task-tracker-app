@@ -1,155 +1,232 @@
-/* --- CSS Reset for Consistent Styling --- */
-*, *::before, *::after {
+/* --- Root Variables for Medical/Pharmacy Theme --- */
+:root {
+    --primary: #007791;
+    --primary-dark: #005669;
+    --primary-light: #e6f4f8;
+    --accent: #10b981;
+    --bg: #f3f8fa;
+    --surface: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 10px 25px -5px rgba(0, 119, 145, 0.08), 0 8px 10px -6px rgba(0, 119, 145, 0.04);
+    --radius: 14px;
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
-/* --- Global Body Styles --- */
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f0f7ff; /* Super light, clean blue background */
+    background-color: var(--bg);
+    color: var(--text-main);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Keep it neat */
-    color: #444;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-/* --- Container: The Core Card Layout --- */
-.container {
-    background: #ffffff;
-    width: 380px;
-    padding: 35px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 120, 180, 0.06); /* Soft, professional blue shadow */
-    border: 1px solid #e1f5fe;
+/* Card Container */
+.app-card {
+    background: var(--surface);
+    width: 100%;
+    max-width: 440px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 119, 145, 0.1);
+    overflow: hidden;
 }
 
-/* --- H1: Title Styling --- */
-h1 {
-    text-align: center;
-    color: #007bbd; /* Trustworthy blue teal */
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    letter-spacing: -0.5px;
+/* Header Area */
+.app-header {
+    background: linear-gradient(135deg, #007791, #005669);
+    color: white;
+    padding: 24px 28px;
 }
 
-/* --- Input Section Layout --- */
-.input-section {
+.app-header .brand {
     display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
 }
 
-/* --- Input Field (id="taskInput") Styles --- */
-input[type="text"] {
-    flex: 1;
-    padding: 12px 15px;
-    border: 2px solid #e1f5fe;
+.brand-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    height: 30px;
     border-radius: 8px;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
 }
 
-input[type="text"]:focus {
-    outline: none;
-    border-color: #00a8cc; /* Highlights with modern aqua teal */
-    box-shadow: 0 0 8px rgba(0, 168, 204, 0.1);
+.app-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-input[type="text"]::placeholder {
-    color: #b0bec5;
-    opacity: 0.8;
-}
-
-/* --- Add Button (id="addBtn") Styles --- */
-button#addBtn {
-    padding: 12px 20px;
-    background-color: #008cb4; /* Trustworthy aqua teal blue */
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
+.app-header p {
     font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Body & Input */
+.app-body {
+    padding: 24px 28px;
+}
+
+.input-group-label {
+    font-size: 12px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    transition: background-color 0.3s ease, transform 0.1s ease;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.input-wrapper {
+    flex: 1;
+}
+
+input[type="text"]#taskInput {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--text-main);
+    background-color: #fafbfc;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]#taskInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 119, 145, 0.12);
+}
+
+button#addBtn {
+    padding: 12px 18px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
 }
 
 button#addBtn:hover {
-    background-color: #006d8a; /* Darker blue teal on hover */
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 12px rgba(0, 119, 145, 0.25);
 }
 
 button#addBtn:active {
-    transform: scale(0.97); /* Little click feedback effect */
+    transform: scale(0.98);
 }
 
-/* --- Task List (ul) Styling --- */
+/* Task List */
+.list-header {
+    margin-bottom: 12px;
+}
+
+.list-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 ul#taskList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    max-height: 300px; /* Limits height, adds scrolling */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    padding-right: 5px; /* Spacing for the scrollbar */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
-/* Custom Scrollbar for the list */
 ul#taskList::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
 }
 ul#taskList::-webkit-scrollbar-thumb {
-    background: #e1f5fe;
-    border-radius: 3px;
-}
-ul#taskList::-webkit-scrollbar-track {
-    background: #f0f7ff;
+    background: #cbd5e1;
+    border-radius: 4px;
 }
 
-/* --- Task Item (li) Styling --- */
 ul#taskList li {
-    background: #f1f8fc;
-    padding: 14px 18px;
-    margin-top: 12px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 12px 16px;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-left: 5px solid #00a8cc; /* Strong accent line */
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
     transition: all 0.2s ease;
-    cursor: pointer;
-}
-
-ul#taskList li:first-child {
-    margin-top: 0;
+    border-left: 4px solid var(--primary);
 }
 
 ul#taskList li:hover {
-    background: #e1f5fe; /* Light highlight on hover */
-    transform: translateY(-2px);
+    background: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
 
-/* Styling the item text */
-ul#taskList li span {
-    font-size: 16px;
-    color: #444;
-}
-
-/* --- Style for Completed Task --- */
+/* Completed Task State */
 ul#taskList li.completed {
-    background-color: #f7fcff;
-    border-left: 5px solid #c9e6f3;
+    background: #f1f5f9;
+    opacity: 0.7;
+    border-left-color: var(--accent);
+    text-decoration: line-through;
+    color: var(--text-muted);
 }
 
-ul#taskList li.completed span {
-    text-decoration: line-through;
-    color: #b0bec5;
+/* Footer Section */
+.app-footer {
+    border-top: 1px solid var(--border);
+    padding: 12px 28px;
+    background: #fafbfc;
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
 }
