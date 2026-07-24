@@ -1,62 +1,144 @@
+/* --- Global Styles: Trust and Clarity --- */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Cleaner typography */
+    background-color: #f9fdff; /* Very light clinical aqua-white background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-}
-
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-h1 {
-    text-align: center;
     color: #333;
 }
 
+/* --- Container: The Pharmacy Portal Card --- */
+.container {
+    background: white;
+    padding: 30px; /* Increased padding for breathing room */
+    border-radius: 12px; /* Slightly more rounded corners */
+    /* Subtle glow instead of hard shadow */
+    box-shadow: 0 6px 12px rgba(0, 140, 180, 0.08);
+    width: 350px; /* Slightly wider for modern feel */
+    border-top: 4px solid #00a8cc; /* Elegant gradient header line start */
+}
+
+/* --- Title: Stylized Pharmacy Title --- */
+h1 {
+    text-align: center;
+    color: #008cb4; /* Professional dark aqua teal */
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Optionally: To make it really look like a pharmacy,
+   we can add a tiny icon via CSS before the title */
+h1::before {
+    content: '✚ '; /* Medical cross icon */
+    color: #00a8cc;
+    font-size: 20px;
+}
+
+/* --- Input Section: Inline and Balanced --- */
 .input-section {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 input {
     flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #e1f5fe; /* Light aqua border */
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
 }
 
+input:focus {
+    outline: none;
+    border-color: #00a8cc; /* Highlight border on focus */
+}
+
+input::placeholder {
+    color: #b0bec5; /* Muted placeholder color */
+}
+
+/* --- Button: Trustworthy and Call-to-Action --- */
 button {
-    padding: 8px 12px;
-    background-color: #5c6bc0;
+    padding: 12px 20px;
+    background-color: #008cb4; /* Main pharmacy color */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Adding a '+' icon inside the button via CSS */
+button::before {
+    content: '+ ';
+    font-size: 16px;
+    margin-right: 5px;
 }
 
 button:hover {
-    background-color: #3f51b5;
+    background-color: #006d8a; /* Darker teal on hover */
 }
 
+button:active {
+    transform: scale(0.97); /* Little click effect */
+}
+
+/* --- List (ul): Spaced and Clean --- */
 ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
+/* --- List Items (li): Medication/Task Cards --- */
 li {
-    background: #eef2f3;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
+    background: #f1f8fc; /* Very light blue background for items */
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #00a8cc; /* Teal accent line on the left */
+    transition: background 0.3s;
+}
+
+li:hover {
+    background: #e1f5fe; /* Soft highlight on hover */
+}
+
+/* Styling the item text */
+li span:first-child {
+    font-size: 15px;
+    color: #444;
+}
+
+/* --- Delete/Complete Icon (spans inside li): Modern Tick --- */
+li span:last-child {
+    cursor: pointer;
+    color: #00a8cc; /* Teal color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.2s;
+}
+
+/* Hover effect for the complete tick */
+li span:last-child:hover {
+    color: #00e676; /* Bright green on hover, meaning 'Done' */
+    transform: scale(1.2);
 }
