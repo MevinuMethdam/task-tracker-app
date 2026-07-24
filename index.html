@@ -3,53 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PharmaCare - Task & Prescription Portal</title>
+    <title>PharmaCare - Enterprise Task & Prescription Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app-card">
-    <!-- Modern Pharmacy Header Section -->
-    <header class="app-header">
+<div class="app-container">
+    <!-- Enterprise Sidebar / Header Nav -->
+    <aside class="sidebar">
         <div class="brand">
             <div class="brand-icon">✚</div>
-            <h1>PharmaCare Portal</h1>
+            <h2>PharmaCare</h2>
         </div>
-        <p>Prescription & Inventory Task Manager</p>
-    </header>
-
-    <!-- Main Task Management Section -->
-    <main class="app-body">
-
-        <label for="taskInput" class="input-group-label">New Task / Order Item</label>
-        <div class="input-section">
-            <div class="input-wrapper">
-                <input type="text" id="taskInput" placeholder="e.g., Dispense Paracetamol 500mg...">
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <span>📋</span> Active Tasks
+            </a>
+            <a href="#" class="menu-item">
+                <span>💊</span> Prescriptions
+            </a>
+            <a href="#" class="menu-item">
+                <span>📦</span> Inventory Queue
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="status-indicator">
+                <span class="dot"></span>
+                <span>Secure System Online</span>
             </div>
-            <button id="addBtn">
-                <span>+</span> Add Task
-            </button>
+            <small>Pharma Suite v2.4 Enterprise</small>
         </div>
+    </aside>
 
-        <div class="list-header">
-            <span class="list-title">Active Pharmacy Tasks</span>
-        </div>
+    <!-- Main Workspace -->
+    <main class="main-content">
+        <header class="content-header">
+            <div>
+                <h1>Prescription & Inventory Manager</h1>
+                <p>Manage daily dispensary workflows and urgent medication requests in real-time.</p>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">Dr</div>
+                <div class="user-info">
+                    <span class="name">Dr. Pharmacist</span>
+                    <span class="role">Lead Dispenser</span>
+                </div>
+            </div>
+        </header>
 
-        <!-- Task List Section -->
-        <ul id="taskList">
-            <!-- JavaScript items will render here dynamically -->
-        </ul>
+        <!-- Task Control Panel -->
+        <section class="control-panel">
+            <div class="input-group">
+                <label for="taskInput" class="input-label">New Task / Prescription Order</label>
+                <div class="input-wrapper">
+                    <input type="text" id="taskInput" placeholder="e.g., Dispense Amoxicillin 500mg - Ward 4B...">
+                    <button id="addBtn">
+                        <span>+</span> Add Task
+                    </button>
+                </div>
+            </div>
+        </section>
 
+        <!-- Task Management Grid / List Section -->
+        <section class="task-section">
+            <div class="list-header">
+                <h3 class="list-title">Active Pharmacy Tasks</h3>
+                <span id="taskCount" class="task-count">0 tasks</span>
+            </div>
+
+            <ul id="taskList">
+                <!-- JavaScript items will render here dynamically -->
+            </ul>
+        </section>
     </main>
-
-    <!-- Footer Info Bar -->
-    <footer class="app-footer">
-        <div class="status-indicator">
-            <span class="dot"></span>
-            <span>System Online</span>
-        </div>
-        <span>Pharma Suite v2.4</span>
-    </footer>
 </div>
 
 <script src="script.js"></script>
