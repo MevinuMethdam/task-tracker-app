@@ -1,144 +1,155 @@
-/* --- Global Styles: Trust and Clarity --- */
+/* --- CSS Reset for Consistent Styling --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Global Body Styles --- */
 body {
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Cleaner typography */
-    background-color: #f9fdff; /* Very light clinical aqua-white background */
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f7ff; /* Super light, clean blue background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    color: #333;
+    overflow: hidden; /* Keep it neat */
+    color: #444;
 }
 
-/* --- Container: The Pharmacy Portal Card --- */
+/* --- Container: The Core Card Layout --- */
 .container {
-    background: white;
-    padding: 30px; /* Increased padding for breathing room */
-    border-radius: 12px; /* Slightly more rounded corners */
-    /* Subtle glow instead of hard shadow */
-    box-shadow: 0 6px 12px rgba(0, 140, 180, 0.08);
-    width: 350px; /* Slightly wider for modern feel */
-    border-top: 4px solid #00a8cc; /* Elegant gradient header line start */
+    background: #ffffff;
+    width: 380px;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 120, 180, 0.06); /* Soft, professional blue shadow */
+    border: 1px solid #e1f5fe;
 }
 
-/* --- Title: Stylized Pharmacy Title --- */
+/* --- H1: Title Styling --- */
 h1 {
     text-align: center;
-    color: #008cb4; /* Professional dark aqua teal */
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: #007bbd; /* Trustworthy blue teal */
+    font-size: 26px;
+    font-weight: 700;
     margin-bottom: 25px;
-    font-weight: 600;
+    letter-spacing: -0.5px;
 }
 
-/* Optionally: To make it really look like a pharmacy,
-   we can add a tiny icon via CSS before the title */
-h1::before {
-    content: '✚ '; /* Medical cross icon */
-    color: #00a8cc;
-    font-size: 20px;
-}
-
-/* --- Input Section: Inline and Balanced --- */
+/* --- Input Section Layout --- */
 .input-section {
     display: flex;
     gap: 12px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
-input {
+/* --- Input Field (id="taskInput") Styles --- */
+input[type="text"] {
     flex: 1;
-    padding: 12px;
-    border: 2px solid #e1f5fe; /* Light aqua border */
-    border-radius: 6px;
-    font-size: 14px;
-    transition: border-color 0.3s;
+    padding: 12px 15px;
+    border: 2px solid #e1f5fe;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: #444;
 }
 
-input:focus {
+input[type="text"]:focus {
     outline: none;
-    border-color: #00a8cc; /* Highlight border on focus */
+    border-color: #00a8cc; /* Highlights with modern aqua teal */
+    box-shadow: 0 0 8px rgba(0, 168, 204, 0.1);
 }
 
-input::placeholder {
-    color: #b0bec5; /* Muted placeholder color */
+input[type="text"]::placeholder {
+    color: #b0bec5;
+    opacity: 0.8;
 }
 
-/* --- Button: Trustworthy and Call-to-Action --- */
-button {
+/* --- Add Button (id="addBtn") Styles --- */
+button#addBtn {
     padding: 12px 20px;
-    background-color: #008cb4; /* Main pharmacy color */
-    color: white;
+    background-color: #008cb4; /* Trustworthy aqua teal blue */
+    color: #ffffff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 13px;
     text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
-    transition: background-color 0.3s, transform 0.1s;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Adding a '+' icon inside the button via CSS */
-button::before {
-    content: '+ ';
-    font-size: 16px;
-    margin-right: 5px;
+button#addBtn:hover {
+    background-color: #006d8a; /* Darker blue teal on hover */
 }
 
-button:hover {
-    background-color: #006d8a; /* Darker teal on hover */
+button#addBtn:active {
+    transform: scale(0.97); /* Little click feedback effect */
 }
 
-button:active {
-    transform: scale(0.97); /* Little click effect */
-}
-
-/* --- List (ul): Spaced and Clean --- */
-ul {
+/* --- Task List (ul) Styling --- */
+ul#taskList {
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    max-height: 300px; /* Limits height, adds scrolling */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    padding-right: 5px; /* Spacing for the scrollbar */
 }
 
-/* --- List Items (li): Medication/Task Cards --- */
-li {
-    background: #f1f8fc; /* Very light blue background for items */
-    padding: 14px;
-    margin-top: 10px;
-    border-radius: 8px;
+/* Custom Scrollbar for the list */
+ul#taskList::-webkit-scrollbar {
+    width: 6px;
+}
+ul#taskList::-webkit-scrollbar-thumb {
+    background: #e1f5fe;
+    border-radius: 3px;
+}
+ul#taskList::-webkit-scrollbar-track {
+    background: #f0f7ff;
+}
+
+/* --- Task Item (li) Styling --- */
+ul#taskList li {
+    background: #f1f8fc;
+    padding: 14px 18px;
+    margin-top: 12px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid #00a8cc; /* Teal accent line on the left */
-    transition: background 0.3s;
+    border-left: 5px solid #00a8cc; /* Strong accent line */
+    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
-li:hover {
-    background: #e1f5fe; /* Soft highlight on hover */
+ul#taskList li:first-child {
+    margin-top: 0;
+}
+
+ul#taskList li:hover {
+    background: #e1f5fe; /* Light highlight on hover */
+    transform: translateY(-2px);
 }
 
 /* Styling the item text */
-li span:first-child {
-    font-size: 15px;
+ul#taskList li span {
+    font-size: 16px;
     color: #444;
 }
 
-/* --- Delete/Complete Icon (spans inside li): Modern Tick --- */
-li span:last-child {
-    cursor: pointer;
-    color: #00a8cc; /* Teal color */
-    font-size: 18px;
-    font-weight: bold;
-    transition: color 0.3s, transform 0.2s;
+/* --- Style for Completed Task --- */
+ul#taskList li.completed {
+    background-color: #f7fcff;
+    border-left: 5px solid #c9e6f3;
 }
 
-/* Hover effect for the complete tick */
-li span:last-child:hover {
-    color: #00e676; /* Bright green on hover, meaning 'Done' */
-    transform: scale(1.2);
+ul#taskList li.completed span {
+    text-decoration: line-through;
+    color: #b0bec5;
 }
